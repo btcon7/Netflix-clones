@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Watch TV Shows Online, Watch Movies Online </title>
+    <script src="https://kit.fontawesome.com/ad850e39e4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/styles.css">
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="/JS/watchlist.js" defer></script>
+
+</head>
+
+<body>
+
+    <header class="mainDisplay">
+        <div class="mainDisplay-top">
+            <img src="https://i.ibb.co/r5krrdz/logo.png" alt="Netflix Logo" />
+            <a href="/HTML/netflixCloneLogin.html" class="btn btn-rounded">Log Out</a>
+        </div>
+        <div class="mainDisplay-content">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <p>Watch anywhere. Cancel Anytime</p>
+            <a href="#" class="btn btn-rounded-xl">Watch Now</a>
+        </div>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Watchlist</li>
+                <li>All Movies</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="tabs">
+        <div class="container">
+            <a href="/HTML/netflixCloneMain.html">
+                <div id="tab-1" class="tab-item">
+                    <i class="fas fa-door-open fa-3x"></i>
+                    <p class="hide-sm">All movies</p>
+                </div>
+            </a>
+            <a href="/HTML/netflixCloneWatchList.html">
+                <div id="tab-2" class="tab-item tab-border">
+                    <i class="fas fa-tablet-alt fa-3x"></i>
+                    <p class="hide-sm">Watchlist</p>
+                </div>
+            </a>
+
+
+        </div>
+    </section>
+
+    <div id="app">
+        <div v-if="list.length < 1">Fetching data...</div>
+        <div v-else>
+            <input v-model="search">
+            <div> {{ search }} </div>
+            <ul>
+                <li v-for="item in filteredList"> {{ item }} </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
